@@ -1,0 +1,22 @@
+* 트렐로 요구사항 분석
+
+* vue-cli를 통해 프로젝트 구성.
+  - webpack을 통한 개발환경 구성.
+  - 먼저 nodejs, npm 은 기본으로 설치가 되어 있어야 한다.
+  - vue cli를 설치한다. (프로젝트의 기본 템플릿을 설정해주는 커멘드라인인터페이스 기반의 스케폴딩 도구)
+    (npm install -g @vue/cli) --> 3.X버전부터는 이름이 변경됨.
+  - vue-cli를 통하여 webpack-simple 로 구성한다.
+    (vue init webpack-simple 또는 vue init webpack-simple 프로젝트명)
+    (cli3에서는 vue init 을 사용하려면 @vue/cli-init 를 설치해야한다. (npm install -g @vue/cli-init) )
+  - npm i (개발환경에 필요한 라이브러리들을 다운받는다.)
+  - 모두 설치가 되었으면 npm run dev로 서버를 실행하여 기본생성된 화면을 띄울 수 있다.
+
+
+* 라우팅의 필요성.
+  - 라우팅의 종류 : 서버라우팅(매번모든화면갱신), 브라우져라우팅(특정부분만화면갱신).
+
+* vue 라우터
+  - vue-router설치  (npm install vue-router --save-dev)
+  - 사용 : import VueRouter from 'vue-router';  
+           Vue.use(VueRouter);
+  - 사용법 참조 : https://router.vuejs.org/kr/api/
