@@ -92,3 +92,17 @@
   - 브랜치를 'auth/navigation-guard' 로 이동 (git checkout -f auth/navigation-guard)
   - cherry-pick으로 해당 커밋의 스타일만 가져온다. (git cherry-pick 2590135)(전체 공통 스타일)(App.vue)
   - cherry-pick으로 해당 화면의 퍼블,script,스타일등을 가져온다 (git cherry-pick 6a57a8f)(로그인화면)(Login.vue)
+
+  - 로그인 api만들기 api/index.js에 로그인 api만들기.
+  - 로그인화면의 onSubmit시 auth.login 호출하여 로그인 처리.
+  - 로그인 api이후 라우터의 header에 token정보를 넣기 위해 api에 setAuthInHeader생성 후 header에 token정보를 셋팅.
+  - 이 후 모든 api는 셋팅된 token을 가지고 api접근할 수 있음.
+  - error처리도 onSubmit의 catch에서 처리(잘안됨!)
+
+* 로그아웃
+  - 미리 만들어둔 퍼블화면파일 (퍼블리셔가 파일을 준다는 가정하에...)
+  - inflean에 있는 저장소를 clone한다. (https://github.com/jeonghwan-kim/lecture-vue-trello.git)
+  - 브랜치를 'auth/login' 로 이동 (git checkout -f auth/login)
+  - cherry-pick으로 해당 커밋의 스타일,퍼블 가져온다. (git cherry-pick 2af7d03)(로그아웃버튼관련)(Navbar.vue)
+
+  - 로그인이 되었을 경우 로그인버튼을 로그아웃버튼으로 교체.
