@@ -20,13 +20,19 @@
 </template>
 
 <script>
+import {auth, setAuthInHeader} from '../api';
+
 export default {
   data() {
     return {
       email: '',
       password: '',
       error: '',
+      rPath: ''
     }
+  },
+  created(){
+    this.rPath = this.$route.query.rPath || '/';
   },
   computed: {
     invalidForm() {
@@ -36,6 +42,18 @@ export default {
   methods: {
     onSubmit() {
       console.log(this.email, this.password)
+      auth.login(this.email, this.password)
+      .then(data => {
+        console.log('login_api : ' +data);
+        localStorage.setItem('token', data.accessToken);
+        setAuthInHeader(data.accessToken);
+        this.$router.push(this.rPath);
+      })
+      .catch(err => {
+        debugger;
+        console.log('login_api_err : ' +JSON.stringify(err));
+        this.error = err.data.error;
+      })
     }
   }
 }
