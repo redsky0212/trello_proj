@@ -106,3 +106,28 @@
   - cherry-pick으로 해당 커밋의 스타일,퍼블 가져온다. (git cherry-pick 2af7d03)(로그아웃버튼관련)(Navbar.vue)
 
   - 로그인이 되었을 경우 로그인버튼을 로그아웃버튼으로 교체.
+  - Navbar에 로그아웃버튼을 만들고 클릭시 setAuthInHeader(null)과 localStorage.token을 null처리 함.
+
+* 보드목록조회화면
+  - 미리 만들어둔 퍼블화면파일 (퍼블리셔가 파일을 준다는 가정하에...)
+  - inflean에 있는 저장소를 clone한다. (https://github.com/jeonghwan-kim/lecture-vue-trello.git)
+  - 브랜치를 'auth/login' 로 이동 (git checkout -f auth/logout)
+  - cherry-pick으로 해당 커밋의 스타일 가져온다. (git cherry-pick db39ec1)(홈화면 스타일 관련)(Home.vue)
+  - cherry-pick으로 해당 커밋의 퍼블 가져온다. (git cherry-pick cdb09e2)(홈화면 퍼블 관련)(Home.vue)
+  - Home.vue소스 검토해보기.
+
+* 보드 추가하기.
+  - 먼저 vue 모달 검색 후 적용.(https://kr.vuejs.org/v2/examples/modal.html)
+  - Modal.vue생성 후 template을 붙여넣음.
+  - AddBoard.vue파일 생성 후 (git cherry-pick b0ba747) 내용 카피.
+  - AddBoard의 이벤트관련 코딩을 Home.vue에 해주고 이벤트에 따른 로직처리를 코딩한다.(Home.vue, AddBoard.vue참조)
+  - 일반적인 모달창 띄우기처리가 되면 addboard관련 api를 호출하는 코딩을 진행한다.
+  - api/index.js에 소스추가.(addboard관련 api추가)
+  - api로 추가된 보드를 바로 호출하여 조회 (Home.vue참조)
+  - ** (((두가지 문제소지가 있음.)))
+  - 모달과 Home과의 중첩관계 컴포넌트일경우 UI가 복잡할 경우 문제 소지가 있음.
+  - addboard할때 모달창에서 title문자만 받아서 Home에서 api를 호출하는데 모달창에서 api를 호출하여 처리 할 수 있을것 같음.
+  - 이와같이 App 전반에 관련된 상태값의 정보가 필요함. 그래서 Vuex 스터디.
+
+* Vuex (상태관리)
+  - 
