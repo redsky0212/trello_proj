@@ -20,6 +20,7 @@
   - 사용 : import VueRouter from 'vue-router';  
            Vue.use(VueRouter);
   - 사용법 참조 : https://router.vuejs.org/kr/api/
+  - 가이드 : https://router.vuejs.org/kr/guide/
 
 * main.js에 몰려있는 router소스를 따로 컴포넌트로 분리
   - src/router/index.js 참조
@@ -55,4 +56,39 @@
   - -v 옵션을 쓰면 request, response정보를 자세히 볼 수 있다.
 
 * Ajax - HttpXMLRequest로 호출
-  - 
+  - 브라우져에서 HttpXMLRequest로 호출하기.
+  - Home.vue컴포넌트에서 fetchData함수를 만들고 XMLHttpRequest로 api호출 예제를 만들어본다.
+
+* Axios로 api호출
+  - axios github 홈페이지 참조.
+  - nodejs 및 브라우져에서 api호출 가능.
+  - Home.vue컴포넌트에 axios를 이용한 api호출 예제 작성.
+
+* 실제 보드 조회 API 사용해보기
+  - 기존 Home.vue파일을 Home_axiostest.vue로 따로 저장하고.
+  - Home.vue컴포넌트에서 boards api를 사용 작성.
+  - boards api호출시 인증(login)이 안되어 있으면 error가 남.
+  - error발생시 this.$router.replace()로 login화면으로 이동 처리.
+
+* Axios 실전에서 사용시 주의점.
+  - axios같은 라이브러리를 사용시 코드를 wraping해서 사용하는게 좋음.
+  - api 폴더를 하나 더 만든다.
+  - api폴더의 index.js파일을 만들고 코딩. 
+
+* 인증 API 사용해보기.
+  - login api로 토큰정보를 가져와 로컬스토리지에 저장한다.
+
+* 라우터 네비게이션 가드 (beforeEnter로 화면 이동 전에 인증여부 처리 해보기.)
+  - 참조 : (https://router.vuejs.org/kr/guide/advanced/navigation-guards.html)
+  - api를 호출하기전에 인증 여부를 파악할 수 없나?
+  - 저장되어있는 로컬스토리지에 토큰값 여부를 판단하여 로직을 변경할 수 있음.
+  - 모든 화면에 토큰을 확인하는 로직도 필요함.
+  - 먼저 routes옵션에 beforeEnter를 설정해주고
+  - 스토리지에 token값을 체크한 후 to, from, next를 이용하여 여부에 따른 화면이동을 한다.(router/index.js 소스참조)
+
+* 로그인 페이지 만들기
+  - 미리 만들어둔 퍼블화면파일 (퍼블리셔가 파일을 준다는 가정하에...)
+  - inflean에 있는 저장소를 clone한다. (https://github.com/jeonghwan-kim/lecture-vue-trello.git)
+  - 브랜치를 'auth/navigation-guard' 로 이동 (git checkout -f auth/navigation-guard)
+  - cherry-pick으로 해당 커밋의 스타일만 가져온다. (git cherry-pick 2590135)(전체 공통 스타일)(App.vue)
+  - cherry-pick으로 해당 화면의 퍼블,script,스타일등을 가져온다 (git cherry-pick 6a57a8f)(로그인화면)(Login.vue)
