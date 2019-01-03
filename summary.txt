@@ -137,5 +137,16 @@
 * Vuex state
   - vuex설치 npm install vuex
   - 상태저장소를 만들기 위한 코딩작업진행. store폴더생성후 index.js생성 내용에 Vuex코딩을 한다.
-  - 생성된 저장소를 사용하려면 entry포인트에서 store관련 import코딩을 해줘야 한다.( src/main.js )
+  - 생성된 저장소를 사용하려면 entry포인트에서 router처럼 store관련 import코딩을 해줘야 한다.( src/main.js )
   - 첫번째로 Home.vue에 있는 isAddBoard를 store로 사용하게 수정해본다.
+  - 
+
+* Vuex Mutation (변이)
+  - 상태값을 변경하는 방법 
+  - 동기적
+  - 
+
+* Vuex Action (액션)
+  - Mutation와 비슷.
+  - 액션에서 dispatch를 통해 Mutation를 호출하고 Mutation커밋하게끔 해주는것.
+  - 상황에 따라  비동기가 있을 수 있음.
